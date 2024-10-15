@@ -5,13 +5,15 @@ import requests
 from socket import timeout
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+
 def fetch_data_api(url):
     try:
         # set timeout for the request
         response = requests.get(url, timeout=5)
 
         # log the request status
-        logging.info("Fetching data from {url}")
+        logging.info(f"Fetching data from {url}")
 
         # Check if the request was successful
         if response.status_code == 200:
@@ -34,10 +36,9 @@ def fetch_data_api(url):
         # Handle any other request errors
         logging.error(f"An error occurred: {e}")
 
+
 # URL of the dummy API
 url = "https://jsonplaceholder.typicode.com/photos"
 
 # Call the function to fetch data
 fetch_data_api(url)
-
-
